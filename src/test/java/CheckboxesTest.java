@@ -1,10 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import static org.testng.Assert.assertEquals;
 
 public class CheckboxesTest extends BaseTest {
@@ -13,24 +11,17 @@ public class CheckboxesTest extends BaseTest {
     public void toCheckFirstNotSelectedElement() {
         driver.get("http://the-internet.herokuapp.com/checkboxes");
         driver.findElement(By.cssSelector("input[type=checkbox]")).click();
-        assertEquals("Selected", "Not selected",
-                "If you see this message it means that before the CLICK the first element" +
-                        " hasn't been selected ." +
-                        "Now the element is selected");
+         boolean m1 = driver.findElement(By.cssSelector("input[type=checkbox]")).isSelected();
+         assertEquals("selected","m1", "Если Вы видите это сообщение, то это значит, " +
+                "что мне не удалось проверить отмечен ли первый элемент или нет");
     }
-
     @Test
     public void toCheckSecondSelectedElement() {
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         driver.get("http://the-internet.herokuapp.com/checkboxes");
-        List<WebElement> checkBoxElements = driver.findElements(By.cssSelector("checkbox"));
-        for (WebElement e : checkBoxElements) {
-            if (e.getText().contains(" checkbox 2")) {
-                e.click();
-            }
-        }
-        assertEquals("Not selected", "Selected",
-                "If you see this message it means that before the CLICK " +
-                        "the second element has been selected .Now the element is not selected");
+        driver.findElement(By.xpath("(//input)[2]")).click();
+        boolean m2 = driver.findElement(By.xpath("(//input)[2]")).isSelected();
+        assertEquals ("m2", "not selected",
+                "Если Вы видите это сообщение, то это значит, " +
+                        "что мне не удалось проверить отмечен ли второй элемент или нет");
     }
 }
