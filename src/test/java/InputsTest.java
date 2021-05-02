@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+
 public class InputsTest extends BaseTest {
     private Object assertEquals;
 
@@ -49,6 +50,6 @@ public class InputsTest extends BaseTest {
         m1.clear();
         m1.sendKeys("маммамияп!!!вапвпрпьал ганрчааяя?;");
         m1.clear();
-        m1.sendKeys( Keys.valueOf("ХДЖХДЖХДЖ"));
+        m1.sendKeys(Keys.valueOf("ХДЖХДЖХДЖ"));
     }
 }
