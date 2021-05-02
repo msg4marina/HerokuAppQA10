@@ -1,8 +1,10 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 import static org.testng.Assert.assertEquals;
 
 public class CheckboxesTest extends BaseTest {
@@ -16,6 +18,7 @@ public class CheckboxesTest extends BaseTest {
                         " hasn't been selected ." +
                         "Now the element is selected");
     }
+
     @Test
     public void toCheckSecondSelectedElement() {
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
