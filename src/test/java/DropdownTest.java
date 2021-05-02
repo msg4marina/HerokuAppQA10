@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertEquals;
 
 public class DropdownTest extends BaseTest {
