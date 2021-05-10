@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -11,17 +12,23 @@ public class CheckboxesTest extends BaseTest {
     public void toCheckFirstNotSelectedElement() {
         driver.get("http://the-internet.herokuapp.com/checkboxes");
         driver.findElement(By.cssSelector("input[type=checkbox]")).click();
-         boolean m1 = driver.findElement(By.cssSelector("input[type=checkbox]")).isSelected();
-         assertEquals("selected","m1", "Если Вы видите это сообщение, то это значит, " +
-                "что мне не удалось проверить отмечен ли первый элемент или нет");
+        assertEquals("Selected", "Not selected",
+                "If you see this message it means that before the CLICK the first element" +
+                        " hasn't been selected ." +
+                        "Now the element is selected");
+        boolean isSelected = driver.findElement(By.cssSelector("input[type=checkbox]")).isSelected();
+        assertEquals(true, isSelected, "If you see this message it means that before " +
+                "the CLICK the first element hasn't been selected." +
+                "Now the element is selected");
     }
     @Test
     public void toCheckSecondSelectedElement() {
         driver.get("http://the-internet.herokuapp.com/checkboxes");
         driver.findElement(By.xpath("(//input)[2]")).click();
-        boolean m2 = driver.findElement(By.xpath("(//input)[2]")).isSelected();
-        assertEquals ("m2", "not selected",
-                "Если Вы видите это сообщение, то это значит, " +
-                        "что мне не удалось проверить отмечен ли второй элемент или нет");
+        boolean isNotSelected = driver.findElement(By.xpath("(//input)[2]")).isSelected();
+        assertEquals (true, "isNotSelected",
+                "If you see this message it means that before the CLICK " +
+                        "the first element has been selected ." +
+                        "Now the element is NOT selected");
     }
 }
