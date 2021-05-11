@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import static org.openqa.selenium.By.*;
 import static org.testng.Assert.assertTrue;
 
-public class DynamicControls extends BaseTest {
+public class DynamicControlsTest extends BaseTest {
     @Test
     public void toFindCheckBox() {
         //Найти чекбокс
